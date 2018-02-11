@@ -1,0 +1,16 @@
+.log-in-container{
+	background-color: white;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#registerContainer{
+	display: none;
+}
+
+#invalidCredentials{
+	color: red;
+}
