@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonObject;
+import com.pojo.User;
 import com.security.LoginUtility;
 import com.security.PasswordAuthentication;
 import com.user.service.UserService;
@@ -45,11 +46,19 @@ public class MainController {
 	}
 
 	@RequestMapping("/welcome")
-	public ModelAndView helloWorld() {
+	public ModelAndView helloWorld(HttpServletRequest request) {
  
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is coming from CrunchifyHelloWorld.java **********</div><br><br>";
-		return new ModelAndView("welcome", "message", message);
+		ModelAndView model = new ModelAndView("welcome", "message", message);
+		User user = (User) request.getSession().getAttribute("user");
+		if (user == null) {
+			model = new ModelAndView("redirect:/");
+		}else {
+			model.addObject("user", user);
+
+		}
+		return model;
 	}
 	
 	@RequestMapping(value= "/register", method = RequestMethod.POST)
@@ -62,6 +71,9 @@ public class MainController {
 		String password =  request.getParameter("password");
 		String hashedPass = LoginUtility.getHashedPassword(password);
 		userService.registerUser(username, hashedPass, firstName, lastName, email);
+		User user = userService.getUser(username);
+		request.getSession().setMaxInactiveInterval(60);
+		request.getSession().setAttribute("user", user);
 		return new ModelAndView("redirect:/welcome");
 
 		
@@ -85,6 +97,9 @@ public class MainController {
 			return model;
 
 		}else {
+			User user = userService.getUser(username);
+			request.getSession().setMaxInactiveInterval(60);
+			request.getSession().setAttribute("user", user);
 			return new ModelAndView("redirect:/welcome");
 
 

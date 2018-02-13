@@ -69,10 +69,8 @@
             <h1 class="cover-heading-contact">Contact</h1>
             <p class="lead" id="leadHome"></p>
             <p class="lead" id="leadContact">Contact me at kevin.bren@outlook.com</p>
-            			<a href="welcome.html">Click here to See Welcome Message... </a>(to
-			check Spring MVC Controller... @RequestMapping("/welcome")) 
 			<div class="log-in-container" id="loginContainer">
-				<h2 class="cover-heading border-bottom padding-bottom-10">Log In</h2>
+				<h3 class="cover-heading border-bottom padding-bottom-10">Log In</h3>
 				<form name="loginForm" id="loginForm" action="/DuoLibroPlatform/login" method="POST">
 				<div class="margin-top-10">
 					<input class="form-input" placeholder=" Username" name="username" type="text">
@@ -93,24 +91,37 @@
           
           	<div class="log-in-container" id="registerContainer">
           		<h3 class="cover-heading border-bottom padding-bottom-10">Sign up for a free account!</h3>
+          		<div class="required"> * <span>required</span></div>
           	
 				<form action="/DuoLibroPlatform/register" method="POST" name="registerForm" id="registerForm">
 				<div class="margin-top-10">
-					<input class="form-input" placeholder=" Enter a username" name="username" type="text">
+					<span class="required">*</span>				
+					<input class="form-input" placeholder=" Enter a username" name="username" type="text" id="registerUsername">
 				</div>
-				<div class="margin-top-10">					
-					<input class="form-input" placeholder=" Enter your first name" name="firstName" type="text">
+				<div class="margin-top-10">	
+					<span class="required">*</span>							
+					<input class="form-input" placeholder=" Enter your first name" name="firstName" type="text" id="registerFirstName">
 				</div>
-				<div class="margin-top-10">					
-					<input class="form-input" placeholder=" Enter your last name" name="lastName" type="text">
+				<div class="margin-top-10">
+					<span class="required">*</span>								
+					<input class="form-input" placeholder=" Enter your last name" name="lastName" type="text" id="registerLastName">
 				</div>
-				<div class="margin-top-10">					
-					<input class="form-input" placeholder=" Enter your email" name="email" type="text">
+				<div class="margin-top-10">	
+					<span class="required">*</span>				
+					<input class="form-input" placeholder=" Enter your email" name="email" type="text" id="registerEmail">
 				</div>
-				<div class="margin-top-10">					
-					<input class="form-input" placeholder=" Enter a password" name="password" type="password">
+				<div class="margin-top-10">	
+					<span class="required">*</span>				
+					<input class="form-input" placeholder=" Enter a password" name="password" type="password" id="firstPassword">
+				</div>
+				<div class="margin-top-10">	
+					<span class="required">*</span>				
+					<input class="form-input" placeholder=" Type your password again" type="password" id="secondPassword">
 				</div>
 				</form>
+				<div class="margin-top-10" id="passwordMismatch">Your typed password does not match</div>
+				<div class="margin-top-10" id="invalidForm">Please fill out all required fields</div>
+				
 				<div class="margin-top-10">
 					<button class="secondary-button" onclick="toggleRegisterForm(true)">Cancel</button>
 				</div>

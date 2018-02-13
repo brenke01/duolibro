@@ -14,3 +14,13 @@
 #invalidCredentials{
 	color: red;
 }
+
+#passwordMismatch{
+	display: none;
+	color: red;
+}
+
+#invalidForm{
+	display: none;
+	color: red;
+}

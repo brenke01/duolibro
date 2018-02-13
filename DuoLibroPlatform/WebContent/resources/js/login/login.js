@@ -1,47 +1,50 @@
 function login(){
 	var form = $("#loginForm").serialize();
 	$("#loginForm").submit();
-/*	$.ajax({
-		type : "POST",
-		url : "/DuoLibroPlatform/login ",
-		data : form,
-		success : function(response) {
-			if (typeof response != 'undefined' && response != null){
-				var data = JSON.parse(response);
-				if (data.valid == false){
-					$("#invalidCredentials").show();
-				}
-			}
-
-		},
-		error : function(e) {
-			console.log("ERROR: ", e);
-		},
-		done : function(e) {
-			console.log("DONE");
-		}
-	});*/
 }
 
 function register(){
-	$("#registerForm").submit();
+	var valid = true;
+	var passwordMatch = true;
+	var username = $("#registerUsername").val();
 
-/*	var form = $("#registerForm").serialize();
+	var firstName = $("#registerFirstName").val();
+	var lastName = $("#registerLastName").val();
 
-	$.ajax({
-		type : "POST",
-		url : "/DuoLibroPlatform/register",
-		data : form,
-		success : function(response) {
-			console.log(response.data);
-		},
-		error : function(e) {
-			console.log("ERROR: ", e);
-		},
-		done : function(e) {
-			console.log("DONE");
-		}
-	});*/
+	var email = $("#registerEmail").val();
+
+	var firstPass = $("#firstPassword").val();
+	var secondPass = $("#secondPassword").val();
+	if (username == null || username == ""){
+		valid = false;
+	}
+	if (firstName == null || firstName == ""){
+		valid = false;
+	}
+	if (lastName == null || lastName == ""){
+		valid = false;
+	}
+	if (email == null || email == ""){
+		valid = false;
+	}
+	if (firstPass == null || firstPass == ""){
+		valid = false;
+	}
+	if (secondPass == null || secondPass == ""){
+		valid = false;
+	}
+	if (firstPass != secondPass){
+		passwordMatch = false
+	}
+	
+	if (valid && passwordMatch){
+		$("#registerForm").submit();
+
+	}else if (valid && !passwordMatch){
+		$("#passwordMismatch").show();
+	}else{
+		$("#invalidForm").show();
+	}
 }
 
 function toggleRegisterForm(isRegister){

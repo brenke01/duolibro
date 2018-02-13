@@ -33,6 +33,11 @@ public class UserService{
 		
 	}
 	
+	public User getUser(String userName) {
+		User user = userDAO.getUserByUsername(userName);
+		return user;
+	}
+	
 	public boolean login(String userName, String password) {
 		User user = userDAO.getUserByUsername(userName);
 		if (user == null) {
