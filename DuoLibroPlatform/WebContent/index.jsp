@@ -67,6 +67,7 @@
           <div class="inner cover ">
             
             <h1 class="cover-heading-contact">Contact</h1>
+            
             <p class="lead" id="leadHome"></p>
             <p class="lead" id="leadContact">Contact me at kevin.bren@outlook.com</p>
 			<div class="log-in-container" id="loginContainer">
@@ -141,7 +142,6 @@
         </div>
 
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
