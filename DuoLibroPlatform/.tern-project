@@ -7,14 +7,5 @@
     "importExportOutsideOfTopBlock": 2,
     "hashBang": 0,
     "pebbleSyntax": 2
-  },
-  "plugins": {
-    "guess-types": {
-      
-    }
-  },
-  "libs": [
-    "ecma5",
-    "browser"
-  ]
+  }
 }
