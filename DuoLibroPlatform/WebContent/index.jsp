@@ -2,6 +2,8 @@
 <% boolean error = request.getParameter("loginError") != null ? Boolean.parseBoolean((String)request.getParameter("loginError")) : false; %>
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +27,7 @@
   </head>
 
   <body>
+  	
     <script>
     
 
@@ -63,6 +66,9 @@
             </div>
           </div>
 
+		  <h3>
+			<hello-world></hello-world>
+		  </h3>
 
           <div class="inner cover ">
             
@@ -143,6 +149,12 @@
 
       </div>
     </div>
+    
+    <script src="resources/js/dist/inline.bundle.js"></script>
+	<script src="resources/js/dist/polyfills.bundle.js"></script>
+	<script src="resources/js/dist/styles.bundle.js"></script>
+	<script src="resources/js/dist/vendor.bundle.js"></script>
+	<script src="resources/js/dist/main.bundle.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
