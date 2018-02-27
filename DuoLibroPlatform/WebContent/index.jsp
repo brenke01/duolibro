@@ -150,11 +150,11 @@
       </div>
     </div>
     
-    <script src="resources/js/dist/inline.bundle.js"></script>
-	<script src="resources/js/dist/polyfills.bundle.js"></script>
-	<script src="resources/js/dist/styles.bundle.js"></script>
-	<script src="resources/js/dist/vendor.bundle.js"></script>
-	<script src="resources/js/dist/main.bundle.js"></script>
+    <script src="resources/js/core/angularresources/dist/inline.bundle.js"></script>
+	<script src="resources/js/core/angularresources/dist/polyfills.bundle.js"></script>
+	<script src="resources/js/core/angularresources/dist/styles.bundle.js"></script>
+	<script src="resources/js/core/angularresources/dist/vendor.bundle.js"></script>
+	<script src="resources/js/core/angularresources/dist/main.bundle.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
