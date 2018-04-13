@@ -44,8 +44,15 @@
 		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 		
 	</bean>
+	<bean id="articleParserDAO" class="com.parser.dao.ArticleParserDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		
+	</bean>
 	<bean id="UserService" class="com.user.service.UserService">
 		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="ArticleParserService" class="com.parser.service.ArticleParserService">
+		<property name="articleParserDAO" ref="articleParserDAO"></property>
 	</bean>
 	<context:component-scan base-package="com.journaldev.spring" />
 	

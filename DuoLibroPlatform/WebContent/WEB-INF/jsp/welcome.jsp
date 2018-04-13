@@ -53,6 +53,18 @@
               </nav>
             </div>
           </div>
+          <div class="row">
+          		<div class="col-xs-3 full-height main-container" style="min-height: 600px; background-color: #ffe6e6">
+          		Left User Menu
+          		</div>
+          		<div class="col-xs-5 full-height main-container">
+          		<div id = "article"></div>
+          		
+          		</div>
+          		<div class="col-xs-4 full-height main-container">
+          		</div>
+          </div>
+                <script src="<c:url value="/resources/js/core/dist/bundle.js" />"></script>
 
           <div class="mastfoot">
             <div class="inner">

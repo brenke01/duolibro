@@ -30,6 +30,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonObject;
+import com.parser.service.ArticleParserService;
 import com.pojo.User;
 import com.security.LoginUtility;
 import com.security.PasswordAuthentication;
@@ -44,11 +45,18 @@ import com.user.service.UserService;
 public class MainController {
 
 	private UserService userService;
+	private ArticleParserService articleParserService;
 	
 	@Autowired(required=true)
 	@Qualifier(value="UserService")
 	public void setUserService(UserService us) {
 		this.userService = us;
+	}
+	
+	@Autowired(required=true)
+	@Qualifier(value="ArticleParserService")
+	public void setArticleParserService(ArticleParserService aps) {
+		this.articleParserService = aps;
 	}
 
 	@RequestMapping("/welcome")
@@ -78,12 +86,22 @@ public class MainController {
 		String hashedPass = LoginUtility.getHashedPassword(password);
 		userService.registerUser(username, hashedPass, firstName, lastName, email);
 		User user = userService.getUser(username);
-		request.getSession().setMaxInactiveInterval(60);
+		request.getSession().setMaxInactiveInterval(600);
 		request.getSession().setAttribute("user", user);
 		return new ModelAndView("redirect:/welcome");
 
 		
 
+
+	}
+	
+	@RequestMapping(value= "/getArticle", method = RequestMethod.GET)
+	public void getArticle(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException, InvalidKeySpecException, IOException {
+		
+		String article = articleParserService.getArticle();
+		JsonObject obj = new JsonObject();
+		obj.addProperty("article", article);
+		response.getWriter().write(obj.toString());
 
 	}
 	
@@ -104,7 +122,7 @@ public class MainController {
 
 		}else {
 			User user = userService.getUser(username);
-			request.getSession().setMaxInactiveInterval(60);
+			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
 			return new ModelAndView("redirect:/welcome");
 
