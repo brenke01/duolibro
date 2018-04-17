@@ -64,11 +64,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://dbaccess.cbboazu1wbv0.us-east-1.rds.amazonaws.com:3306/duolingo"/>
-        <property name="username" value="brenke01"/>
-        <property name="password" value="duolingo123"/>
+
     </bean>
 	<mvc:resources mapping="/resources/**" location="/resources/"
 	cache-period="31556926"/>
